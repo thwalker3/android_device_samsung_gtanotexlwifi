@@ -86,9 +86,12 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-impl \
     android.hardware.graphics.mapper@2.0-impl
 
+PRODUCT_PACKAGES += \
+    hwcomposer.exynos5
+
 # RenderScript HAL
-#PRODUCT_PACKAGES += \
-#    android.hardware.renderscript@1.0-impl
+PRODUCT_PACKAGES += \
+    android.hardware.renderscript@1.0-impl
 
 # DRM
 #PRODUCT_PACKAGES += \
@@ -99,10 +102,14 @@ PRODUCT_PACKAGES += \
 #    AdvancedDisplay
 
 PRODUCT_PACKAGES += \
-    libcamhelpr \
+    libshim_camera \
+    libexynoscamera_shim \
     camera.device@3.2-impl \
     camera.device@1.0-impl \
     android.hardware.camera.provider@2.4-impl
+
+PRODUCT_PACKAGES += \
+    Snap
 
 # Radio
 PRODUCT_PACKAGES += \
@@ -144,6 +151,10 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl \
     libbt-vendor
 
+# Network
+PRODUCT_PACKAGES += \
+    netutils-wrapper-1.0
+
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_policy.conf:system/etc/audio_policy.conf \
@@ -184,7 +195,12 @@ PRODUCT_COPY_FILES += \
 
 # Keymaster
 PRODUCT_PACKAGES += \
+    keystore.exynos5 \
     android.hardware.keymaster@3.0-impl
+
+# Configstore
+PRODUCT_PACKAGES += \
+    android.hardware.configstore@1.0-impl
 
 # Touchscreen
 PRODUCT_COPY_FILES += \
