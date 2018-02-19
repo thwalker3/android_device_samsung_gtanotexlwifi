@@ -11,7 +11,7 @@ on early-init
     mount debugfs /sys/kernel/debug /sys/kernel/debug
 
 on init
-    export LD_SHIM_LIBS "/system/lib/libexynoscamera.so|/system/vendor/lib/libcamhelpr.so"
+    export LD_SHIM_LIBS /system/lib/libexynoscamera.so|/vendor/lib/libexynoscamera_shim.so:/system/lib/hw/camera.universal7870.so|/vendor/lib/libshim_camera.so
 
     start watchdogd
 
@@ -62,9 +62,9 @@ on post-fs-data
     rm /data/system/gps/beidou_started
     rm /data/system/gps/smd_started
     rm /data/system/gps/sv_cno.info
-    
+
     setprop vold.post_fs_data_done 1
-    
+
 # /efs/factory.prop for Dual / Single SIM settings
     chown radio radio /efs/factory.prop
     chmod 0600 /efs/factory.prop
@@ -84,7 +84,7 @@ on boot
 
 #   mount debugfs /sys/kernel/debug /sys/kernel/debug
     # Allow to access debugfs for system:system
-	chmod 755 /sys/kernel/debug
+    chmod 755 /sys/kernel/debug
     chown system system /sys/kernel/debug
 #   setprop ro.radio.noril yes
 
@@ -119,7 +119,7 @@ on boot
     chmod 0664 /sys/devices/11400000.mali/dvfs_min_lock
     chown radio system /sys/devices/11400000.mali/dvfs_max_lock
     chmod 0664 /sys/devices/11400000.mali/dvfs_max_lock
-    
+
     # mif, int
     chown radio system /sys/class/devfreq/17000010.devfreq_mif/min_freq
     chmod 0664 /sys/class/devfreq/17000010.devfreq_mif/min_freq
@@ -183,7 +183,7 @@ on boot
     chown system system /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy
     chmod 0660 /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy
 
-    chown bluetooth net_bt /dev/ttySAC0
+    chown bluetooth bluetooth /dev/ttySAC0
     chmod 0660 /dev/ttySAC0
 
 # sem_daemon permission
@@ -267,7 +267,7 @@ on boot
     chown system radio /sys/class/sensors/grip_sensor/ch_state
     chown system radio /sys/class/sensors/grip_sensor/body_threshold
     chown system radio /sys/class/sensors/grip_sensor/freq
- 
+
 # Grip_sensor wifi
     chown system radio /sys/class/sensors/grip_sensor_wifi/name
     chown system radio /sys/class/sensors/grip_sensor_wifi/vendor
@@ -769,13 +769,14 @@ service argos-daemon /system/bin/argosd
     class main
     user system
     group system radio
-	
+
 # GPS
-#service gpsd /system/bin/gpsd
-#    class main
-#    user gps
-#    group system inet net_raw wakelock
-#    ioprio be 0
+service gpsd /system/bin/gpsd -c /system/etc/gps.xml
+    class main
+    user gps
+    group system inet net_raw wakelock
+    ioprio be 0
+    seclabel u:r:gpsd:s0
 
 # LPM
 service lpm /system/bin/lpm
