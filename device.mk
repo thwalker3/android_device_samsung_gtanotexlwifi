@@ -125,7 +125,7 @@ PRODUCT_PACKAGES += \
     libxml2 \
     libprotobuf-cpp-full \
     android.hardware.radio@1.0 \
-    android.hardware.radio.deprecated@1.0 \
+    android.hardware.radio.deprecated@1.0
 
 PRODUCT_PACKAGES += \
     SamsungServiceMode
@@ -138,7 +138,7 @@ PRODUCT_PACKAGES += \
 
 # Memory
 PRODUCT_PACKAGES += \
-    android.hardware.memtrack@1.0-impl 
+    android.hardware.memtrack@1.0-impl
 
 # WiFi
 PRODUCT_COPY_FILES += \
@@ -232,10 +232,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
     android.hardware.vibrator@1.0-impl
-
-# Root
-PRODUCT_PACKAGES += \
-    su
 
 # Offmode charger
 PRODUCT_PACKAGES += \
