@@ -684,6 +684,10 @@ on fs
     chown radio system /cpefs
     chmod 0771 /cpefs
 
+# Permission for HBM
+    chmod 0660 /sys/class/mdnie/mdnie/lux
+    chown system system /sys/class/mdnie/mdnie/lux
+    
 # Copy DRM Key
 # copy /system/app/wv.keys /factory/wv.keys
 
