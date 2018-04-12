@@ -802,8 +802,9 @@ service charger /charger
 service start_hci_filter /system/bin/wcnss_filter
     class late_start
     user bluetooth
-    group bluetooth oem_2950 sdcard_rw
+    group bluetooth
     disabled
+    seclabel u:r:wcnss_filter:s0
 
 on property:wc_transport.start_hci=true
     start start_hci_filter
