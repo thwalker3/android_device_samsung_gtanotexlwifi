@@ -3,6 +3,12 @@ type app_efs_file, file_type;
 type battery_efs_file, file_type;
 type bin_nv_data_efs_file, file_type;
 type nv_log_efs_file, file_type;
+
+# /data
+#type ramdump_data_file, file_type, data_file_type, mlstrustedobject;
+#type time_data_file, file_type, data_file_type;
+#type ramdump_vendor_data_file, file_type, data_file_type, mlstrustedobject;
+
 # widewine, drm
 type cpk_efs_file, file_type;
 type drm_efs_file, file_type;
@@ -16,9 +22,21 @@ type wifi_efs_file, file_type;
 type sysfs_mdnie_writable, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_mipi_writable, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_multipdp_writable, fs_type, sysfs_type, mlstrustedobject;
+#type sysfs_timestamp_switch, sysfs_type, fs_type;
+#type sysfs_diag, fs_type, sysfs_type;
 
 allow sysfs_type tmpfs:filesystem associate;
 
 type biometrics_data_file, file_type;
 
 type mobicore_data_file, file_type;
+
+# type for persist partition
+type persist_file, file_type;
+type persist_data_file, file_type;
+type persist_drm_file, file_type;
+type persist_wifi_file, file_type;
+type persist_sensortool_file, file_type;
+type persist_camera_file, file_type;
+
+#type debugfs_ipc, debugfs_type, fs_type;

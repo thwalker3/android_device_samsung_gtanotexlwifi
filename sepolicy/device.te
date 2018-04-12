@@ -25,8 +25,12 @@ type radio_block_device, dev_type;
 
 type uart_device, dev_type;
 
+type gpsd_device, dev_type;
+
 type vfs_device, dev_type;
 
 type batch_io_device, dev_type;
 
 type ttyHS0_device, dev_type;
+
+#type diag_device, dev_type, mlstrustedobject;

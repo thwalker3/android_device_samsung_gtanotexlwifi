@@ -34,9 +34,12 @@
 /dev/mipi-lli/lli_control    u:object_r:mif_device:s0
 
 /dev/ttyBCM[0-9]*            u:object_r:bbd_device:s0
-/dev/ttySAC[0-9]*            u:object_r:bluetooth_device:s0
+/dev/ttySAC[2-9]*            u:object_r:bluetooth_device:s0
 #/dev/ttySAC0                 u:object_r:hci_attach_dev:s0
 
+/dev/ttySAC0                 u:object_r:bluetooth_device:s0
+/dev/ttySAC1                 u:object_r:gpsd_device:s0
+/dev/ttyHS0                  u:object_r:ttyHS0_device:s0
 
 /dev/block/mmcblk0p[0-9]*    u:object_r:emmcblk_device:s0
 
@@ -122,3 +125,8 @@
 /system/bin/gpsd              -- u:object_r:gpsd_exec:s0
 /sbin/cbd                     -- u:object_r:rootfs:s0
 /system/bin/lhd               -- u:object_r:lhd_exec:s0
+
+/tombstones                      u:object_r:rootfs:s0
+
+# Persist files
+/persist(/.*)?                     u:object_r:persist_file:s0

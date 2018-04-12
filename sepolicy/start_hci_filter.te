@@ -1,16 +1,37 @@
 #Policy for start_hci_filter
 type start_hci_filter, domain;
 type start_hci_filter_exec, exec_type, file_type;
+
 init_daemon_domain(start_hci_filter);
 
 allow start_hci_filter self:capability { setuid setgid dac_override };
 
+# write to proc/sysrq-trigger
 allow start_hci_filter proc_sysrq:file rw_file_perms;
 allow start_hci_filter ttyHS0_device:chr_file rw_file_perms;
+allow start_hci_filter bluetooth_device:chr_file rw_file_perms;
 
 allow start_hci_filter uart_device:chr_file { open read write ioctl };
 
 #allow start_hci_filter sysfs_msmuart_file:file rw_file_perms;
 set_prop(start_hci_filter, wc_transport_prop)
+
 # Allow reading Bluetooth-related system properties
 get_prop(start_hci_filter, bluetooth_prop)
+
+# access to /dev/diag on debug builds
+#userdebug_or_eng(`
+#  allow start_hci_filter diag_device:chr_file rw_file_perms;
+#  allow start_hci_filter sysfs_timestamp_switch:file r_file_perms;
+#  r_dir_file(start_hci_filter, sysfs_diag)
+#  allow start_hci_filter ramdump_vendor_data_file:dir w_dir_perms;
+#  allow start_hci_filter ramdump_vendor_data_file:file { create w_file_perms };
+#  r_dir_file(start_hci_filter, debugfs_ipc)
+#  set_prop(start_hci_filter, ssr_prop)
+#')
+#userbuild(`
+#  dontaudit start_hci_filter diag_device:chr_file rw_file_perms;
+#')
+
+# allow wcnss to set threads to RT priority
+allow start_hci_filter self:capability sys_nice;
