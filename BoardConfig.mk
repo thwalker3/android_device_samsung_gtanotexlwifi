@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/gtaxlwifi
+LOCAL_PATH := device/samsung/gtanotexlwifi
 
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
@@ -58,7 +58,7 @@ BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 
 TARGET_KERNEL_SOURCE := kernel/samsung/exynos7870
-TARGET_KERNEL_CONFIG := lineage-gtaxlwifi_defconfig
+TARGET_KERNEL_CONFIG := lineage-gtanotexlwifi_defconfig
 
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 
@@ -181,7 +181,7 @@ CHARGING_ENABLED_PATH := /sys/class/power_supply/battery/batt_lp_charging
 BOARD_VENDOR := samsung
 
 #Hidl
-DEVICE_MANIFEST_FILE := device/samsung/gtaxlwifi/manifest.xml
+DEVICE_MANIFEST_FILE := device/samsung/gtanotexlwifi/manifest.xml
 
 # Sensors
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
@@ -194,7 +194,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)
 #RECOVERY_VARIANT := twrp
 BOARD_HAS_DOWNLOAD_MODE := true
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/ramdisk/fstab.samsungexynos7870
-TARGET_OTA_ASSERT_DEVICE := gtaxlwifi
+TARGET_OTA_ASSERT_DEVICE := gtanotexlwifi
 
 # TWRP
 ifeq ($(RECOVERY_VARIANT),twrp)
@@ -238,4 +238,4 @@ TARGET_LD_SHIM_LIBS += \
 BOARD_SEPOLICY_DIRS := $(LOCAL_PATH)/sepolicy
 
 # Inherit from the proprietary version
--include vendor/samsung/gtaxlwifi/BoardConfigVendor.mk
+-include vendor/samsung/gtanotexlwifi/BoardConfigVendor.mk

@@ -15,8 +15,8 @@
 #
 
 PRODUCT_MAKEFILES := \
-	$(LOCAL_DIR)/lineage_gtaxlwifi.mk
+	$(LOCAL_DIR)/lineage_gtanotexlwifi.mk
 
 COMMON_LUNCH_CHOICES := \
-	lineage_gtaxlwifi-userdebug \
-	lineage_gtaxlwifi-eng
+	lineage_gtanotexlwifi-userdebug \
+	lineage_gtanotexlwifi-eng
