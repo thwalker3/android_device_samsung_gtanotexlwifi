@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/gtaxlwifi
+LOCAL_PATH := device/samsung/gtanotexlwifi
 
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
@@ -58,7 +58,7 @@ BOARD_KERNEL_PAGESIZE := 2048
 
 TARGET_LINUX_KERNEL_VERSION := 3.18
 TARGET_KERNEL_SOURCE := kernel/samsung/exynos7870
-TARGET_KERNEL_CONFIG := lineage-gtaxlwifi_defconfig
+TARGET_KERNEL_CONFIG := lineage-gtanotexlwifi_defconfig
 
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 
@@ -86,7 +86,6 @@ TARGET_USERIMAGES_USE_EXT4 := true
 # Vendor separation
 TARGET_COPY_OUT_VENDOR := system/vendor
 
-# Security patch level - T580XXU4CRK5
 VENDOR_SECURITY_PATCH := 2018-11-01
 
 # Bluetooth
@@ -102,7 +101,7 @@ TARGET_AUDIOHAL_VARIANT := samsung
 TARGET_POWERHAL_VARIANT := samsung
 
 # Lineage HW
-JAVA_SOURCE_OVERLAYS := org.lineageos.hardware|device/samsung/gtaxlwifi/lineagehw|**/*.java
+JAVA_SOURCE_OVERLAYS := org.lineageos.hardware|device/samsung/gtanotexlwifi/lineagehw|**/*.java
 
 # Samsung Camera
 BOARD_USE_SAMSUNG_CAMERAFORMAT_NV21 := true
@@ -215,7 +214,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)
 #RECOVERY_VARIANT := twrp
 BOARD_HAS_DOWNLOAD_MODE := true
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/ramdisk/fstab.samsungexynos7870
-TARGET_OTA_ASSERT_DEVICE := gtaxlwifi
+TARGET_OTA_ASSERT_DEVICE := gtanotexlwifi
 
 # TWRP
 ifeq ($(RECOVERY_VARIANT),twrp)
@@ -249,4 +248,4 @@ TARGET_LD_SHIM_LIBS += \
 BOARD_SEPOLICY_DIRS := $(LOCAL_PATH)/sepolicy
 
 # Inherit from the proprietary version
--include vendor/samsung/gtaxlwifi/BoardConfigVendor.mk
+-include vendor/samsung/gtanotexlwifi/BoardConfigVendor.mk
