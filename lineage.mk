@@ -15,7 +15,7 @@
 #
 
 # Inherit device configuration
-$(call inherit-product, device/samsung/gtaxlwifi/device.mk)
+$(call inherit-product, device/samsung/gtanotexlwifi/device.mk)
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
@@ -24,15 +24,15 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 $(call inherit-product, vendor/lineage/config/common_full_tablet_wifionly.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_NAME := lineage_gtaxlwifi
-PRODUCT_DEVICE := gtaxlwifi
+PRODUCT_NAME := lineage_gtanotexlwifi
+PRODUCT_DEVICE := gtanotexlwifi
 PRODUCT_BRAND := samsung
-PRODUCT_MODEL := SM-T580
+PRODUCT_MODEL := SM-P580
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=gtaxlwifixx \
-    PRIVATE_BUILD_DESC="gtaxlwifixx-user 7.0 NRD90M T580XXU2BQI9 release-keys"
+    PRODUCT_NAME=gtanotexlwifikx \
+    PRIVATE_BUILD_DESC="gtanotexlwifikx-user 8.1.0 M1AJQ P580UEU1CRK2 release-keys"
 
-BUILD_FINGERPRINT := samsung/gtaxlwifixx/gtaxlwifi:7.0/NRD90M/T580XXU2BQI9:user/release-keys
+BUILD_FINGERPRINT := samsung/gtanotexlwifikx/gtanotexlwifikx:8.1.0/M1AJQ/P580UEU1CRK2:user/release-keys
