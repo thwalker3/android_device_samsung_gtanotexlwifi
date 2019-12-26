@@ -16,7 +16,7 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-LOCAL_PATH := device/samsung/gtaxlwifi
+LOCAL_PATH := device/samsung/gtanotexlwifi
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
@@ -323,4 +323,4 @@ $(call inherit-product, hardware/samsung_slsi/exynos7870/exynos7870.mk)
 endif
 
 # call the proprietary setup
-$(call inherit-product, vendor/samsung/gtaxlwifi/gtaxlwifi-vendor.mk)
+$(call inherit-product, vendor/samsung/gtanotexlwifi/gtanotexlwifi-vendor.mk)

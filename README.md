@@ -13,7 +13,7 @@ Copyright (C) 2017 Valera Chigir <valera1978@tut.by>
 
 * Description
 
-  This repository is for LineageOS on Samsung Galaxy Tab A (gtaxlwifi)
+  This repository is for LineageOS on Samsung Galaxy Tab A (gtanotexlwifi)
 
 * How To Build LineageOS for Samsung Galaxy Tab A
 
@@ -33,9 +33,9 @@ repo init -u git://github.com/crdroidandroid/android.git -b 10.0
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
-  <project name="Valera1978/android_device_samsung_gtaxlwifi" path="device/samsung/gtaxlwifi" remote="github" />
-  <project name="Valera1978/android_kernel_samsung_exynos7870" path="kernel/samsung/exynos7870" remote="github" />
-  <project name="Valera1978/android_vendor_samsung_gtaxlwifi" path="vendor/samsung/gtaxlwifi" remote="github" />
+  <project name="thwalker3/android_device_samsung_gtanotexlwifi" path="device/samsung/gtanotexlwifi" remote="github" />
+  <project name="thwalker3/android_kernel_samsung_exynos7870" path="kernel/samsung/exynos7870" remote="github" />
+  <project name="thwalker3/android_vendor_samsung_gtanotexlwifi" path="vendor/samsung/gtanotexlwifi" remote="github" />
 
   <project name="Valera1978/android_hardware_samsung" path="hardware/samsung" remote="github" />
   <project name="LineageOS/android_packages_resources_devicesettings" path="packages/resources/devicesettings" remote="github" />
@@ -61,4 +61,4 @@ repo sync
 
   - Build cm17
 
-brunch gtaxlwifi
+brunch gtanotexlwifi
